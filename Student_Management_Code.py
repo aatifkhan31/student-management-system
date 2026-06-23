@@ -11,12 +11,34 @@ while True:
         print("Please pick a valid option!")
 
     elif n == 1:
-        a0=int(input("Enter Student's Roll number: "))
+        while True:
+            try:
+                a0=int(input("Enter Student's Roll number: "))
+                break
+            except ValueError:
+                print("Roll Number must be a number!")
+                
         a1=input("Enter Student's Name: ")
-        a2=int(input("Enter Student's Class: "))
-        a3=int(input("Enter Student's Maths Mark: "))
-        a4=int(input("Enter Student's Science Mark: "))
-        a5=int(input("Enter Student's English Mark: "))
+
+        while True:
+            try:
+                a2=int(input("Enter Student's Class: "))
+                break
+            except ValueError:
+                print("Class must be a number!")
+
+        while True:
+            try: 
+                a3=int(input("Enter Student's Maths Mark: "))
+                a4=int(input("Enter Student's Science Mark: "))
+                a5=int(input("Enter Student's English Mark: "))
+                if (0<=a3<=100 and 0<=a4<=100 and 0<=a5<=100):
+                    break
+                else:
+                    print("Marks must be between 0 and 100!")
+            except ValueError:
+                print("Please enter valid numbers!")
+
         avg=round(((a3+a4+a5)/3),3)
 
         f=open("student.csv", "a")
@@ -93,6 +115,3 @@ while True:
     else:
         print("Thank you for using Student Management System!")
         break
-    
-
-
